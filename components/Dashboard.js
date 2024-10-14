@@ -16,6 +16,7 @@ export default function Dashboard() {
   ])
 
   const toggleNav = () => setIsNavOpen(!isNavOpen)
+  const closeNav = () => setIsNavOpen(false)
   const openCreateModal = () => setIsCreateModalOpen(true)
   const closeCreateModal = () => setIsCreateModalOpen(false)
 
@@ -36,7 +37,12 @@ export default function Dashboard() {
       {/* Navigation Bar */}
       <nav className={`fixed inset-y-0 left-0 transform ${isNavOpen ? 'translate-x-0' : '-translate-x-full'} lg:relative lg:translate-x-0 transition duration-200 ease-in-out z-30 w-64 bg-gray-800 p-6 flex flex-col justify-between`}>
         <div>
-          <h1 className="text-2xl font-bold mb-10 text-blue-400">StudyDash</h1>
+          <div className="flex justify-between items-center mb-10">
+            <h1 className="text-2xl font-bold text-blue-400">StudyDash</h1>
+            <button onClick={closeNav} className="lg:hidden text-gray-400 hover:text-white">
+              <X size={24} />
+            </button>
+          </div>
           <ul className="space-y-6">
             <li>
               <button onClick={openCreateModal} className="flex items-center space-x-2 text-gray-400 hover:text-white transition duration-200">
